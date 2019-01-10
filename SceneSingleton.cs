@@ -16,7 +16,7 @@ public class SceneSingleton<T> : MonoBehaviour where T : MonoBehaviour {
                         if (s_instance == null) {
                             GameObject singleton = new GameObject ();
                             s_instance = singleton.AddComponent<T> ();
-                            singleton.name = "(singleton) " + typeof (T).ToString ();
+                            singleton.name = "[SceneSingleton] " + typeof (T).ToString ();
 
                             Debug.Log ("[Singleton] '" + singleton + "' created implicitly.");
                         }

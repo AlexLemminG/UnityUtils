@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameSingleton<T> : MonoBehaviour where T : MonoBehaviour {
+public class Singleton<T> : MonoBehaviour where T : MonoBehaviour {
     private static T s_instance;
     private static object s_lock = new object ();
 
@@ -16,7 +16,7 @@ public class GameSingleton<T> : MonoBehaviour where T : MonoBehaviour {
                         if (s_instance == null) {
                             GameObject singleton = new GameObject ();
                             s_instance = singleton.AddComponent<T> ();
-                            singleton.name = "(singleton) " + typeof (T).ToString ();
+                            singleton.name = "[Singleton] " + typeof (T).ToString ();
 
                             DontDestroyOnLoad (singleton);
                             Debug.Log ("[Singleton] '" + singleton + "' created implicitly.");
