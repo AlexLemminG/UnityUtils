@@ -36,7 +36,7 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour {
         }
         s_instance = this as T;
         if (!(this is ISceneSingleton)) {
-            DontDestroyOnLoad (this);
+            DontDestroyOnLoad (this.transform.root);
         }
         OnAwake ();
     }
