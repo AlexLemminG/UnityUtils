@@ -28,7 +28,9 @@ public class EditorButton : Editor {
 			GUI.enabled = editorButtonAttribute.enabledInEditMode || Application.isPlaying;
 			if (GUILayout.Button (memberInfo.Name)) {
 				var method = memberInfo as MethodInfo;
-				method.Invoke (mono, null);
+				foreach (var target in targets) {
+					method.Invoke (target, null);
+				}
 			}
 		}
 		GUI.enabled = guiEnabled;
