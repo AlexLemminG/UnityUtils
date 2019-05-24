@@ -7,13 +7,13 @@ using System.Reflection;
 using UnityEditor;
 using UnityEngine;
 
-[CustomEditor (typeof (MonoBehaviour), true)]
+[CustomEditor (typeof (UnityEngine.Object), true)]
 [CanEditMultipleObjects]
 public class EditorButton : Editor {
 	public override void OnInspectorGUI () {
 		base.OnInspectorGUI ();
 
-		var mono = target as MonoBehaviour;
+		var mono = target as UnityEngine.Object;
 
 		if (mono == null)
 			return;
